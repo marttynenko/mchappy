@@ -1,8 +1,13 @@
 const App = new Vue({
   el: '#app',
   data: {
-    startCounter: 1214,
-    counter: 54869,
+    urlToCounters: './data/counters.json',
+    defaultStartCounter: 124,
+    defaultCounter: 54871,
+    startCounter: '',
+    counter: 0,
+    // startCounter: 1214,
+    // counter: 54869,
     menuHeight: 80,
     modal: false,
     modalHTML: ''
@@ -31,7 +36,8 @@ const App = new Vue({
     removePreloader() {
       gsap.to(this.$refs.preloader,{duration: 0.5, scale: 1.5, opacity: 0, onComplete: () => {
         this.$refs.preloader.remove()
-        this.animateCounter(this.counter)
+        // this.animateCounter(this.counter)
+        this.getCounters()
       }})
     },
     showModal(id) {
@@ -39,17 +45,36 @@ const App = new Vue({
       this.modalHTML = `<iframe width="1000" height="400" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     },
     modalEnter(el,done) {
-      const modal = el.querySelector('.modal')
       gsap.fromTo(el,{opacity:0, scale:1.2}, {opacity:1, scale:1, duration: 1, onComplete: done})
     },
     modalLeave(el,done) {
       gsap.to(el,{opacity:0, scale:1.2, duration: 0.5, onComplete: done})
+    },
+    getCounters() {
+      fetch(this.urlToCounters)
+        .then(response => response.json())
+        .then(item => {
+          this.startCounter = item.startCounter
+          this.counter = item.counter
+          this.animateCounter(this.counter)
+        })
+        .catch(error => {
+          console.log(error)
+          this.startCounter = this.defaultStartCounter
+          this.counter = this.defaultCounter
+          this.animateCounter(this.counter)
+        });
     }
   },
   computed: {
     animatedNumber: function() {
-      let fixed = this.startCounter.toFixed(0)
-      let formated = new Intl.NumberFormat('ru-RU').format(fixed)
+      let formated
+      if (typeof this.startCounter === "number") {
+        let fixed = this.startCounter.toFixed(0)
+        formated = new Intl.NumberFormat('ru-RU').format(fixed)
+      } else {
+        formated = this.startCounter
+      }
       return formated
     }
   },
