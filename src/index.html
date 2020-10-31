@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>МакХэппи День</title>
+  <meta name="keywords" content="МакХэппи День, МакДональдс, McDonalds, благотворительная акция, день ребенка" />
+  <meta name="description" content="МакХэппи День - ежегодная благотворительная акция МакДональдс, которая проводится вот уже 20 лет." />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta property="og:title" content="МакХэппи День">
+  <meta property="og:description" content="МакХэппи День - ежегодная благотворительная акция МакДональдс, которая проводится вот уже 20 лет.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  
+
+  <style>
+    @font-face {
+      font-family: 'Speedee';
+      src: local('Speedee'), local('Speedee-Regular'),
+        url('fonts/Speedee/Speedee_Rg.otf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: fallback;
+    }
+    @font-face {
+      font-family: 'Speedee';
+      src: local('Speedee Bold'), local('Speedee-Bold'),
+        url('fonts/Speedee/Speedee_Bd.otf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: fallback;
+    }
+  </style>
+  <!-- favicons -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="css/normalize.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" media="all" />
+
+  <!--[if lt IE 9]>
+    <script>
+    var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+    "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+    "progress,section,time,video").split(',');
+    for (var i = 0; i < e.length; i++) {
+    document.createElement(e[i]);
+    }
+    </script>
+  <![endif]-->
+  <style>
+    .preloader {
+      position: fixed;
+      z-index: 9999;
+      display: -ms-flex;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      -ms-justify-content: center;
+      justify-content: center;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: #fab824;
+      padding: 50px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="app" class="app">
+  <div class="preloader" ref="preloader">
+    <div class="preloader-logo"><img src="images/happy-logo.png" alt="МакХэппи День"></div>
+  </div>
+  <div class="app-header">
+    <div class="inner">
+      <nav class="app-nav">
+        <ul>
+          <li><a href="#anchor_1" class="active" @click.prevent="scrollToAnchor($event)">Главная</a></li>
+          <li><a href="#anchor_2" @click.prevent="scrollToAnchor($event)">МакХэппи День<br> в Беларуси</a></li>
+          <li><a href="#anchor_3" @click.prevent="scrollToAnchor($event)">МакХэппи День<br> в мире</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div><!--.header-->
+
+  
+  <div class="intro" id="anchor_1">
+    <div class="intro-bg">
+      <div class="inner">
+        <div class="intro-flex flex" @mousemove="girlAnimate($event)" @mouseleave="girlOut" @mouseenter="girlIn">
+          <div class="intro-logo">
+            <img src="images/happy-logo.png" alt="МакХэппи День" loading="lazy">
+          </div>
+          <div class="intro-imgs">
+            <img src="images/girl.png" alt="МакХэппи День" class="intro-girl" ref="girl">
+          </div>
+          <div class="intro-content">
+            <div class="intro-content-inner">
+              <div class="intro-title">Простой<br>вклад<br>в большое<br>дело!</div>
+              <div class="intro-month">Весь ноябрь!</div>
+              <div class="intro-products">
+                Покупай <strong>Биг Мак<sup>ТМ</sup></strong>, <strong>Кофе</strong> или <strong>Хэппи Мил</strong>  — помогай детям!  
+              </div>
+              <div class="intro-counter">
+                <div class="intro-counter-label">Нас уже</div>
+                <div class="intro-counter-value">{{animatedNumber}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--.intro-bg-->
+    <div class="intro-svg">
+      <svg viewBox="0 0 1920 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path id="intro_triangle" d="M1920 0H0L960 230L1920 0Z" fill="#FAB824"/>
+      </svg>
+      <div class="intro-btn">
+        <a href="javascript:void(0)" @click.prevent="showModal('CGFLeO3daZY')" class="btn">Смотреть видео</a>
+      </div>
+    </div>
+  </div><!--.intro-->
+  
+
+  <div class="happy-by" id="anchor_2">
+    <div class="inner">
+      <div class="row happy-by-row">
+        <div class="col-happy-img"><img src="images/girl-coffee.png" alt="МакХэппи День в Беларуси"></div>
+        <div class="col-happy-content">
+          <div class="h1">МакХэппи День в Беларуси</div>
+          <div class="happy-by-txt">
+            <p>МакХэппи День — ежегодная благотворительная акция МакДональдс, которая проводится вот уже 20 лет. За это время было собрано более 2 000 000 рублей, поддержано 15 социальных и медицинских учреждений страны, построены 2 гостиницы для подопечных при Белорусском детском хосписе.</p>
+            <div class="mobile-only"><img src="images/boy.png" alt="alt"></div>
+            <p>2020 год не стал исключением, и в это непростое для всех время важно получать и оказывать поддержку, особенно малышам. Весь ноябрь покупайте в МакДональдс Биг Мак, кофе или Хэппи Мил, и 10 копеек с каждого проданного продукта будут перечислены в детские учреждения и Белорусский детский хоспис. Вместе мы способны на большее: превратить добрые дела в часть нашего дня. Даже тот, кто никогда не задумывался о благотворительности, благодаря вам сделает шаг в этом направлении. Без вас МакХэппи День не стал бы доброй традицией и важным событием в жизни гостей МакДональдс и, самое главное, в жизни детей!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="happy-world" id="anchor_3">
+    <div class="inner">
+      <div class="happy-world-content">
+        <div class="happy-world-inner">
+          <div class="h1">МакХэппи День в мире</div>
+          <p>МакДональдс поддерживает многочисленные благотворительные акции и проекты, особенно касающиеся здоровья и благополучия детей. Именно поэтому еще в середине 1970-х годов было принято решение основать собственную социальную инициативу, сделать ее всемирной и укрепить эту традицию на долгие годы. Так появилась одна из наиболее известных благотворительных кампаний в мире — «МакХэппи День», которая проводится более чем в 37 000 ресторанах МакДональдс в 120 странах.</p>
+          <p>Во время акции по всему миру люди, которые небезразличны к проблемам детей, традиционно приходят в рестораны МакДональдс, чтобы поддержать инициативу. Средства, собранные благодаря акции «МакХэппи День», направляются на строительство медицинских и социальных учреждений, создание «семейных комнат» в больницах и бесплатных гостиниц для родителей детей, проходящих курс лечения, а также на покупку необходимого медицинского оборудования и мебели для приютов, детских домов и реабилитационных центров для детей с ограниченными возможностями. Каждый доллар, евро или рубль, собранный в рамках этого мероприятия, идет на добрые и очень нужные дела по всему миру.<br>Станьте и вы частью большого доброго дела!</p>
+        </div>
+      </div>
+    </div>
+    <div class="happy-world-bgs"><img src="images/red-heart.png" alt="сердце" loading="lazy"></div>
+  </div>
+
+  <div class="ui-share">
+    <div class="ya-share2" data-services="facebook,twitter,vkontakte"></div>
+  </div>
+  
+  <transition
+    v-on:enter="modalEnter"
+    v-on:leave="modalLeave"
+    v-bind:css="false">
+    <div class="modal-wrp" v-if="modal">
+      <div class="modal-container">
+        <div class="modal-content">
+          <div class="modal">
+            <div class="modal-close" @click.prevent="showModal">X</div>
+            <div v-html="modalHTML"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-bg"></div>
+    </div>
+  </transition>
+</div><!-- #app -->
+
+<script src="js/vue.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/gsap.scrollto.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
